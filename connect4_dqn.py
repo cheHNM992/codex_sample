@@ -302,11 +302,21 @@ def play_vs_human(model_path: str, device: str = "cpu") -> None:
     agent.epsilon = 0.0
 
     env.reset()
-    human_player = 1
-    ai_player = -1
-    current_player = human_player
+    while True:
+        order = input("先攻なら 1、後攻なら 2 を入力してください: ").strip()
+        if order in {"1", "2"}:
+            break
+        print("1 か 2 を入力してください。")
 
-    print("You are X. Enter row and column index (0-8 0-8).")
+    if order == "1":
+        human_player, ai_player = 1, -1
+        current_player = human_player
+        print("あなたは先攻（X）です。入力は row col（0-8 0-8）")
+    else:
+        human_player, ai_player = -1, 1
+        current_player = ai_player
+        print("あなたは後攻（O）です。入力は row col（0-8 0-8）")
+
     env.render()
 
     while True:

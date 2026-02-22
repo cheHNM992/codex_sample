@@ -25,7 +25,7 @@ python connect4_dqn.py train --episodes 3000 --save model.pth
 python connect4_dqn.py play --model model.pth
 ```
 
-- 人間は `X`、AIは `O` です。
+- 対戦開始時に、人間が先攻（`X`）か後攻（`O`）かを選べます。
 - 入力はマス座標（`row col`、それぞれ `0`〜`8`）。
 
 ## 依存ライブラリ
